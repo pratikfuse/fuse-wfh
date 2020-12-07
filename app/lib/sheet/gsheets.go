@@ -1,24 +1,23 @@
 package sheet
 
 import (
-	//sheets	"google.golang.org/api/sheets/v4"
 	"context"
+	"google.golang.org/api/option"
 	"google.golang.org/api/sheets/v4"
 )
 
-type sheet struct {
-	service *sheets.Service
+type Sheet struct {
+	Service *sheets.Service
 }
 
-func (s *sheet) GetInstance() error {
+func GetInstance(apiKey string) (Sheet, error) {
+	sheetService := Sheet{}
 	ctx := context.Background()
-
-	sheetService, err := sheets.NewService(ctx)
+	s, err := sheets.NewService(ctx, option.WithAPIKey(apiKey))
 
 	if err != nil {
-		return nil
+		return sheetService, err
 	}
-	s.service = sheetService
-
-	return nil
+	sheetService.Service = s
+	return sheetService, nil
 }

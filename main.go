@@ -1,11 +1,10 @@
 package main
 
-
-
 import (
 	"fmt"
-	"github.com/pratikfuse/fuse-wfh/app"
 	"os"
+
+	"github.com/pratikfuse/fuse-wfh/app"
 )
 
 func main() {

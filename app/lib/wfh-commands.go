@@ -9,9 +9,12 @@ func GetCommands() []*cli.Command {
 		{
 			Name:  "login",
 			Usage: "Login to google suite account",
-			Action: LoginUser,
+			Action: Authenticate,
 		},
-
-
+		{
+			Name: "check-in",
+			Usage: "Check in time",
+			Action: CheckIn,
+		},
 	}
 }
